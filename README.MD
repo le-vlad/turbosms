@@ -39,7 +39,7 @@ Is a golang client for SMS Gateway service (turbosms.com.ua)
 		messageID string
 		err       error
 	)
-    // username, password must be type string
+  // username, password must be type string
 	if turboSMS, err = New(username, password); err != nil {
 		t.Fatal(err)
 	}
