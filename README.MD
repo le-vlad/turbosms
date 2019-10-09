@@ -12,42 +12,43 @@ Is a golang client for SMS Gateway service (turbosms.com.ua)
 
 ### Creating a new instance
 ```go
-	var (
-		turboSMS  *TurboSMS
-		err       error
-	)
+var (
+	turboSMS  *TurboSMS
+	err       error
+)
 
-	// username, password must be type string
-	if turboSMS, err = New(username, password); err != nil {
-		t.Fatal(err)
-	}
+// username, password must be type string
+if turboSMS, err = New(username, password); err != nil {
+	t.Fatal(err)
+}
 ```
 
 ### Build a message
 ```go
-	m := NewMessageBuilder()
-	message, err = m.SetSign("SignExample").
-		SetBody("Message Body").
-		SetDestination("+380999999111").
-		Build()
+m := NewMessageBuilder()
+message, err = m.SetSign("SignExample").
+	SetBody("Message Body").
+	SetDestination("+380999999111").
+	Build()
 ```
 
 ### Send a message
 ```go
-	var (
-		turboSMS  *TurboSMS
-		messageID string
-		err       error
-	)
-  // username, password must be type string
-	if turboSMS, err = New(username, password); err != nil {
-		t.Fatal(err)
-	}
+var (
+	turboSMS  *TurboSMS
+	messageID string
+	err       error
+)
 
-	// m = was build by message builder
-	if messageID, err = turboSMS.SendMessage(m); err != nil {
-		t.Fatal(err)
-	}
+// username, password must be type string
+if turboSMS, err = New(username, password); err != nil {
+	t.Fatal(err)
+}
+
+// m = was build by message builder
+if messageID, err = turboSMS.SendMessage(m); err != nil {
+	t.Fatal(err)
+}
 ```
 
 ## TODO
